@@ -25,43 +25,24 @@
 ]]
 
 -- Dependencies
+local utils = require("utils")
 local player = require("definitions.player")
 local colossus = require("definitions.colossus")
 
 -- Habilitar UTF-8 no terminal
-os.execute("chcp 65001")
+utils.enableUtf8()
 
 -- Header
-print([[
-======================================================================================    
-        _____
-        \   /
-        |   |
-    .__.         |   |_____________________________________________
-    |  |_________|   |                                              \
-    |  |         |   |________________________________________________\
-    |  |_________|   |                                                /
-    |__|         |   |_____________________________________________ /
-        |   |
-        |   |
-        /___\
-                    ------------------------------------------------
+utils.printHeader()
 
-==                            ⚔️    SIMULADOR DE BATALHA    ⚔️                     ==
-======================================================================================  
-
-                    Você empunha sua espada e se prepara para lutar.
-                                  É hora da batalha!
-
-]])
-
+-- Cartão
 
 -- Obter a definição do monstro
+local boss = colossus
 
 -- Obter a definição do jogador
-print(string.format("A vida do jogador é: %d/%d!", player.health, player.maxHealth))
 
 -- Apresentar o monstro
-local boss = colossus
+utils.printCreature(boss)
 
 -- Começar o loop de batalha
